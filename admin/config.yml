@@ -8,13 +8,14 @@ public_folder: "/images/uploads"
 collections:
   - name: "portfolio"
     label: "Cinematic Gallery"
-    folder: "content/portfolio"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Project Title", name: "title", widget: "string" }
-      - { label: "Category", name: "category", widget: "select", options: ["Convocation", "Events", "Commercial", "Lifestyle", "Music Video"] }
-      - { label: "Cover Image / Thumbnail", name: "thumbnail", widget: "image" }
-      - { label: "Video Link (YouTube/Vimeo Embed)", name: "video_url", widget: "string", required: false }
-      - { label: "External Link (TikTok/IG/Drive)", name: "external_link", widget: "string", required: false }
-      - { label: "Short Description", name: "description", widget: "text" }
+    files:
+      - file: "content/portfolio.json"
+        label: "Gallery Items"
+        name: "gallery"
+        fields:
+          - { label: "Items", name: "items", widget: "list", fields: [
+              { label: "Project Title", name: "title", widget: "string" },
+              { label: "Category", name: "category", widget: "select", options: ["Convocation", "Wedding", "Commercial", "Events"] },
+              { label: "Thumbnail Image", name: "thumbnail", widget: "image" },
+              { label: "Video URL", name: "videoUrl", widget: "string" }
+            ]}
