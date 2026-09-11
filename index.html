@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WhiteyCreations — Visual Storytelling & Cinematography</title>
   
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   
@@ -450,5 +451,16 @@
       modal.classList.add('hidden');
     }
   </script>
+ <script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script> 
 </body>
 </html>
