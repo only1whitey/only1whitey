@@ -516,7 +516,7 @@
     // Dynamic CMS Portfolio Content Loader
     async function fetchCMSPortfolio() {
       try {
-        const response = await fetch('https://api.github.com/repos/only1whitey/WhiteyCreations/contents/content/portfolio');
+        const response = await fetch('https://api.github.com/repos/only1whitey/WhiteyCreations/contents/gallery');
         if (!response.ok) return;
         const files = await response.json();
 
