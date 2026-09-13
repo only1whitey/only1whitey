@@ -1,24 +1,22 @@
 backend:
   name: git-gateway
-  branch: main
+  branch: main # or master depending on your default branch
 
+# Where uploaded images will be saved in your project repository
 media_folder: "images"
-public_folder: "/images"
+public_folder: "images"
 
 collections:
-  - name: "portfolio_data"
-    label: "Portfolio Data"
-    files:
-      - file: "content/portfolio.json"
-        label: "Portfolio Items"
-        name: "portfolio"
-        fields:
-          - label: "Portfolio Items List"
-            name: "items"
-            widget: "list"
-            fields:
-              - { label: "ID", name: "id", widget: "string" }
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Category", name: "category", widget: "string" }
-              - { label: "Thumbnail Image", name: "thumbnail", widget: "image" }
-              - { label: "Video URL (YouTube/Vimeo/TikTok)", name: "videoUrl", widget: "string" }
+  - name: "portfolio"
+    label: "Portfolio Projects"
+    folder: "content"
+    create: true
+    file: "portfolio.json"
+    identifier_field: "title"
+    fields:
+      - {label: "Projects List", name: "items", widget: "list", fields: [
+          {label: "Project Title", name: "title", widget: "string"},
+          {label: "Category", name: "category", widget: "select", options: ["Lifestyle", "Convocation", "Events", "Dinner Night", "Wedding", "Music Video"]},
+          {label: "Thumbnail Image", name: "thumbnail", widget: "image"},
+          {label: "Video URL (YouTube, TikTok, Instagram, or MP4)", name: "videoUrl", widget: "string"}
+        ]}

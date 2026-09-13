@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WhiteyCreations | Visual Storytelling & Cinematography</title>
+  <title>WhiteyCreations | Cinematography & Creative Direction</title>
   
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -11,6 +11,9 @@
       darkMode: 'class',
       theme: {
         extend: {
+          colors: {
+            customOrange: '#FF6B00',
+          },
           fontFamily: {
             sans: ['Plus Jakarta Sans', 'sans-serif'],
           },
@@ -26,121 +29,309 @@
 
   <style>
     body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .glass-card { 
+      background: rgba(255, 255, 255, 0.03); 
+      backdrop-filter: blur(12px); 
+      border: 1px solid rgba(255, 255, 255, 0.08); 
+    }
+    .dark .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    html:not(.dark) .glass-card {
+      background: rgba(0, 0, 0, 0.02);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
     .modal-active { overflow: hidden; }
   </style>
 </head>
 
-<body class="bg-slate-50 dark:bg-[#080808] text-neutral-900 dark:text-white font-sans transition-colors duration-300 min-h-screen flex flex-col justify-between">
+<body class="bg-neutral-50 text-neutral-900 dark:bg-[#0B0B0B] dark:text-white min-h-screen flex flex-col justify-between transition-colors duration-300 selection:bg-customOrange selection:text-white">
 
-  <header class="sticky top-0 z-40 w-full backdrop-blur-md bg-white/70 dark:bg-[#080808]/70 border-b border-neutral-200 dark:border-neutral-800">
+  <!-- STICKY NAVBAR -->
+  <header class="sticky top-0 z-40 w-full backdrop-blur-md bg-white/70 dark:bg-[#0B0B0B]/80 border-b border-neutral-200 dark:border-white/10 transition-colors duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-      <a href="#" class="text-2xl font-extrabold tracking-wider uppercase text-red-600 dark:text-red-500">
-        WHITEY<span class="text-neutral-900 dark:text-white">CREATIONS</span>
+      <a href="#" class="flex items-center space-x-3">
+        <img src="images/logo.png" alt="WhiteyCreations Logo" class="w-10 h-10 object-cover rounded-full border border-customOrange/50">
+        <span class="text-2xl font-extrabold tracking-wider uppercase">
+          WHITEY<span class="text-customOrange">CREATIONS</span>
+        </span>
       </a>
 
-      <nav class="hidden md:flex items-center space-x-8 font-semibold text-sm">
-        <a href="#about" class="hover:text-red-600 transition-colors">About</a>
-        <a href="#portfolio" class="hover:text-red-600 transition-colors">Portfolio</a>
-        <a href="#services" class="hover:text-red-600 transition-colors">Services</a>
-        <a href="#contact" class="hover:text-red-600 transition-colors">Contact</a>
-        <a href="/admin" target="_blank" class="text-xs text-neutral-400 hover:text-red-500 transition-colors">Admin Dashboard</a>
+      <nav class="hidden md:flex items-center space-x-8 font-semibold text-sm tracking-wide">
+        <a href="#home" class="hover:text-customOrange transition-colors">Home</a>
+        <a href="#portfolio" class="hover:text-customOrange transition-colors">Portfolio</a>
+        <a href="#about" class="hover:text-customOrange transition-colors">About</a>
+        <a href="#services" class="hover:text-customOrange transition-colors">Services</a>
+        <a href="#contact" class="hover:text-customOrange transition-colors">Contact</a>
+        <a href="/admin" target="_blank" class="text-xs text-neutral-400 hover:text-customOrange transition-colors">Admin</a>
       </nav>
 
       <div class="flex items-center space-x-4">
+        <!-- THEME TOGGLE BUTTON -->
         <button id="theme-toggle" class="p-2.5 rounded-full bg-neutral-200 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:opacity-80 transition-all">
           <i id="theme-toggle-dark-icon" class="fas fa-moon hidden"></i>
           <i id="theme-toggle-light-icon" class="fas fa-sun hidden"></i>
         </button>
-        <a href="#contact" class="hidden sm:inline-block px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white font-bold text-sm rounded-full shadow-lg transition-all">
-          BOOK A SHOOT
+
+        <a href="#contact" class="hidden sm:inline-block px-5 py-2.5 bg-customOrange hover:bg-orange-600 text-white font-bold text-sm rounded-full shadow-lg transition-all">
+          Book A Shoot
         </a>
       </div>
     </div>
   </header>
 
   <main>
-    <section class="py-20 md:py-32 px-4 max-w-7xl mx-auto text-center">
-      <span class="text-xs font-bold uppercase tracking-widest text-red-600 dark:text-red-500 mb-3 block">Cinematography & Creative Direction</span>
-      <h1 class="text-4xl md:text-7xl font-extrabold tracking-tight mb-6">
-        Crafting Visual Stories That Resonate.
-      </h1>
-      <p class="max-w-2xl mx-auto text-neutral-600 dark:text-neutral-400 text-base md:text-lg mb-8">
-        High-end video editing, color grading, and direction for brands, music videos, and commercial campaigns.
-      </p>
-      <div class="flex justify-center space-x-4">
-        <a href="#portfolio" class="px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl shadow-lg transition-all">
-          Explore Work
-        </a>
-      </div>
-    </section>
+    <!-- 1. HERO SECTION -->
+    <section id="home" class="relative py-28 md:py-40 px-4 max-w-7xl mx-auto text-center flex flex-col items-center justify-center overflow-hidden">
+      <div class="absolute w-96 h-96 bg-customOrange/20 rounded-full blur-3xl -top-10 pointer-events-none"></div>
 
-    <section id="portfolio" class="py-16 px-4 max-w-7xl mx-auto border-t border-neutral-200 dark:border-neutral-800">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-5xl font-extrabold mb-3">Cinematic Gallery</h2>
-        <p class="text-neutral-500 dark:text-neutral-400 text-sm">Click any project below to watch high-definition previews.</p>
-      </div>
-
-      <div id="portfolio-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      </div>
-    </section>
-
-    <section id="about" class="py-16 px-4 max-w-7xl mx-auto border-t border-neutral-200 dark:border-neutral-800">
-      <div class="max-w-3xl mx-auto text-center">
-        <h2 class="text-3xl md:text-4xl font-extrabold mb-6">About WhiteyCreations</h2>
-        <p class="text-neutral-600 dark:text-neutral-400 leading-relaxed text-base md:text-lg">
-          Iyanu Godwin Omobuse (Whitey) is a passionate cinematographer, video editor, and creative director dedicated to elevating brand stories through high-impact visuals, rhythmic editing, and vibrant color grading.
+      <div class="relative z-10 max-w-3xl">
+        <span class="text-xs font-bold uppercase tracking-widest text-customOrange mb-4 block">Capturing Moments. Creating Stories. Leaving Impressions.</span>
+        <h1 class="text-4xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
+          Cinematographer <br><span class="text-neutral-500 dark:text-neutral-400">Visual Storyteller</span> <br><span class="text-customOrange">Creative Director</span>
+        </h1>
+        <p class="max-w-xl mx-auto text-neutral-600 dark:text-neutral-400 text-base md:text-lg mb-10">
+          Preserving your most invaluable moments through high-end cinematic video production and photography.
         </p>
+        <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
+          <a href="#portfolio" class="w-full sm:w-auto px-8 py-4 bg-customOrange hover:bg-orange-600 text-white font-bold rounded-xl shadow-lg transition-all">
+            View Portfolio
+          </a>
+          <a href="#contact" class="w-full sm:w-auto px-8 py-4 glass-card hover:border-customOrange transition-all font-bold">
+            Book A Shoot
+          </a>
+        </div>
       </div>
     </section>
 
-    <section id="services" class="py-16 px-4 max-w-7xl mx-auto border-t border-neutral-200 dark:border-neutral-800">
+    <!-- 2. STATS SECTION -->
+    <section class="py-12 px-4 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+      <div class="p-6 glass-card rounded-2xl">
+        <p class="text-4xl md:text-5xl font-extrabold text-customOrange mb-2">50+</p>
+        <p class="text-sm font-semibold tracking-wider uppercase text-neutral-500 dark:text-neutral-400">Projects Completed</p>
+      </div>
+      <div class="p-6 glass-card rounded-2xl">
+        <p class="text-4xl md:text-5xl font-extrabold text-customOrange mb-2">20+</p>
+        <p class="text-sm font-semibold tracking-wider uppercase text-neutral-500 dark:text-neutral-400">Happy Clients</p>
+      </div>
+      <div class="p-6 glass-card rounded-2xl">
+        <p class="text-4xl md:text-5xl font-extrabold text-customOrange mb-2">4+</p>
+        <p class="text-sm font-semibold tracking-wider uppercase text-neutral-500 dark:text-neutral-400">Years Experience</p>
+      </div>
+    </section>
+
+    <!-- 3. PORTFOLIO SECTION -->
+    <section id="portfolio" class="py-24 px-4 max-w-7xl mx-auto">
       <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-extrabold mb-3">Services Offered</h2>
+        <span class="text-xs font-bold uppercase tracking-widest text-customOrange mb-2 block">Cinematic Gallery</span>
+        <h2 class="text-3xl md:text-5xl font-extrabold mb-4">Featured Work & Projects</h2>
+        <p class="text-neutral-500 dark:text-neutral-400 text-sm max-w-md mx-auto">Select a category or click any project preview to watch high-definition video coverages.</p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-        <div class="p-6 bg-white dark:bg-neutral-800/50 rounded-2xl border border-neutral-200 dark:border-neutral-800">
-          <i class="fas fa-video text-3xl text-red-600 mb-4"></i>
-          <h3 class="text-xl font-bold mb-2">Cinematography</h3>
-          <p class="text-sm text-neutral-500 dark:text-neutral-400">Professional visual composition, lighting, and camera work for all productions.</p>
+
+      <!-- FILTER BUTTONS -->
+      <div id="filter-buttons" class="flex flex-wrap justify-center gap-3 mb-12">
+        <button onclick="filterPortfolio('All')" class="filter-btn px-5 py-2.5 rounded-full text-sm font-bold bg-customOrange text-white transition-all">All</button>
+        <button onclick="filterPortfolio('Lifestyle')" class="filter-btn px-5 py-2.5 rounded-full text-sm font-bold glass-card text-neutral-700 dark:text-neutral-300 hover:text-customOrange hover:border-customOrange transition-all">Lifestyle</button>
+        <button onclick="filterPortfolio('Convocation')" class="filter-btn px-5 py-2.5 rounded-full text-sm font-bold glass-card text-neutral-700 dark:text-neutral-300 hover:text-customOrange hover:border-customOrange transition-all">Convocation</button>
+        <button onclick="filterPortfolio('Events')" class="filter-btn px-5 py-2.5 rounded-full text-sm font-bold glass-card text-neutral-700 dark:text-neutral-300 hover:text-customOrange hover:border-customOrange transition-all">Events</button>
+        <button onclick="filterPortfolio('Dinner Night')" class="filter-btn px-5 py-2.5 rounded-full text-sm font-bold glass-card text-neutral-700 dark:text-neutral-300 hover:text-customOrange hover:border-customOrange transition-all">Dinner Night</button>
+        <button onclick="filterPortfolio('Wedding')" class="filter-btn px-5 py-2.5 rounded-full text-sm font-bold glass-card text-neutral-700 dark:text-neutral-300 hover:text-customOrange hover:border-customOrange transition-all">Wedding</button>
+        <button onclick="filterPortfolio('Music Video')" class="filter-btn px-5 py-2.5 rounded-full text-sm font-bold glass-card text-neutral-700 dark:text-neutral-300 hover:text-customOrange hover:border-customOrange transition-all">Music Video</button>
+      </div>
+
+      <!-- DYNAMIC CMS PORTFOLIO GRID -->
+      <div id="portfolio-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Injected via portfolio.json -->
+      </div>
+    </section>
+
+    <!-- 4. ABOUT SECTION -->
+    <section id="about" class="py-24 px-4 max-w-7xl mx-auto">
+      <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <!-- About Portrait Photo -->
+        <div class="relative w-full aspect-square rounded-2xl overflow-hidden glass-card shadow-2xl">
+          <img src="images/logo.png" alt="Iyanu Omobuse - WhiteyCreations" class="w-full h-full object-cover">
         </div>
-        <div class="p-6 bg-white dark:bg-neutral-800/50 rounded-2xl border border-neutral-200 dark:border-neutral-800">
-          <i class="fas fa-film text-3xl text-red-600 mb-4"></i>
-          <h3 class="text-xl font-bold mb-2">Video Editing</h3>
-          <p class="text-sm text-neutral-500 dark:text-neutral-400">Seamless pacing, sound design, and narrative construction for commercials and music videos.</p>
-        </div>
-        <div class="p-6 bg-white dark:bg-neutral-800/50 rounded-2xl border border-neutral-200 dark:border-neutral-800">
-          <i class="fas fa-palette text-3xl text-red-600 mb-4"></i>
-          <h3 class="text-xl font-bold mb-2">Color Grading</h3>
-          <p class="text-sm text-neutral-500 dark:text-neutral-400">Custom look development and color correction to bring a cinematic atmosphere to your film.</p>
+        <div class="text-left">
+          <span class="text-xs font-bold uppercase tracking-widest text-customOrange mb-2 block">Founder of WhiteyCreations</span>
+          <h2 class="text-3xl md:text-4xl font-extrabold mb-6">Meet Iyanu Omobuse</h2>
+          <p class="text-neutral-600 dark:text-neutral-400 leading-relaxed text-base md:text-lg mb-6">
+            Driven by creativity and a passion for visual storytelling, WhiteyCreations helps individuals and brands preserve moments through cinematic photography and video production.
+          </p>
+          
+          <div class="space-y-3 mb-8">
+            <div class="flex items-center space-x-3 text-sm font-semibold text-neutral-700 dark:text-neutral-200">
+              <i class="fas fa-check-circle text-customOrange"></i>
+              <span>Cinematography</span>
+            </div>
+            <div class="flex items-center space-x-3 text-sm font-semibold text-neutral-700 dark:text-neutral-200">
+              <i class="fas fa-check-circle text-customOrange"></i>
+              <span>Video Editing</span>
+            </div>
+            <div class="flex items-center space-x-3 text-sm font-semibold text-neutral-700 dark:text-neutral-200">
+              <i class="fas fa-check-circle text-customOrange"></i>
+              <span>Content Creation</span>
+            </div>
+            <div class="flex items-center space-x-3 text-sm font-semibold text-neutral-700 dark:text-neutral-200">
+              <i class="fas fa-check-circle text-customOrange"></i>
+              <span>Motion Graphics</span>
+            </div>
+            <div class="flex items-center space-x-3 text-sm font-semibold text-neutral-700 dark:text-neutral-200">
+              <i class="fas fa-check-circle text-customOrange"></i>
+              <span>Photography</span>
+            </div>
+          </div>
+
+          <a href="#contact" class="inline-block px-6 py-3 bg-customOrange hover:bg-orange-600 text-white font-bold rounded-xl text-sm transition-all">
+            Get in Touch
+          </a>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="py-20 px-4 max-w-7xl mx-auto border-t border-neutral-200 dark:border-neutral-800 text-center">
-      <h2 class="text-3xl md:text-5xl font-extrabold mb-4">Let's Create Together</h2>
-      <p class="text-neutral-500 dark:text-neutral-400 mb-8 max-w-xl mx-auto">Have a project in mind? Let's discuss your vision and turn it into visual reality.</p>
-      <a href="https://wa.me/2349155643308?text=Hello%20WhiteyCreations" target="_blank" class="inline-block px-8 py-4 bg-green-600 hover:bg-green-700 text-white font-bold rounded-xl shadow-lg transition-all">
-        <i class="fab fa-whatsapp mr-2"></i> Start a Project on WhatsApp
-      </a>
+    <!-- 5. SERVICES SECTION -->
+    <section id="services" class="py-24 px-4 max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-xs font-bold uppercase tracking-widest text-customOrange mb-2 block">What We Offer</span>
+        <h2 class="text-3xl md:text-5xl font-extrabold">Professional Services</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="p-8 glass-card rounded-2xl hover:border-customOrange transition-all">
+          <i class="fas fa-video text-4xl text-customOrange mb-6"></i>
+          <h3 class="text-xl font-bold mb-3">Event Coverage</h3>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">Comprehensive cinematic capture for weddings, convocations, dinner nights, and grand gatherings.</p>
+        </div>
+        <div class="p-8 glass-card rounded-2xl hover:border-customOrange transition-all">
+          <i class="fas fa-camera text-4xl text-customOrange mb-6"></i>
+          <h3 class="text-xl font-bold mb-3">Lifestyle Photography</h3>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">High-end stylized portraits and brand lifestyle shoots tailored to elevate your public presence.</p>
+        </div>
+        <div class="p-8 glass-card rounded-2xl hover:border-customOrange transition-all">
+          <i class="fas fa-film text-4xl text-customOrange mb-6"></i>
+          <h3 class="text-xl font-bold mb-3">Music Video Production</h3>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">Creative concept development, directing, and rhythmic editing built for artists and major music releases.</p>
+        </div>
+        <div class="p-8 glass-card rounded-2xl hover:border-customOrange transition-all">
+          <i class="fas fa-cut text-4xl text-customOrange mb-6"></i>
+          <h3 class="text-xl font-bold mb-3">Video Editing</h3>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">Seamless timeline construction, professional sound design, and custom grading to turn raw footage into masterpieces.</p>
+        </div>
+        <div class="p-8 glass-card rounded-2xl hover:border-customOrange transition-all">
+          <i class="fas fa-mobile-alt text-4xl text-customOrange mb-6"></i>
+          <h3 class="text-xl font-bold mb-3">Social Media Content</h3>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">Engaging short-form reels and TikTok edits designed to capture attention and build viral brand traction.</p>
+        </div>
+        <div class="p-8 glass-card rounded-2xl hover:border-customOrange transition-all">
+          <i class="fas fa-palette text-4xl text-customOrange mb-6"></i>
+          <h3 class="text-xl font-bold mb-3">Motion Design</h3>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">Dynamic motion graphics, lower thirds, and visual effects to give your production high-end polish.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. CONTACT SECTION -->
+    <section id="contact" class="py-24 px-4 max-w-7xl mx-auto">
+      <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-customOrange mb-2 block">Reach Out</span>
+          <h2 class="text-3xl md:text-4xl font-extrabold mb-6">Let's Create Together</h2>
+          <p class="text-neutral-600 dark:text-neutral-400 mb-8 text-sm leading-relaxed">Have an upcoming event or brand project? Connect directly via WhatsApp or fill out the booking form to secure your date.</p>
+
+          <div class="space-y-4">
+            <a href="https://wa.me/2349155643308?text=Hello%20WhiteyCreations" target="_blank" class="flex items-center space-x-4 p-4 glass-card rounded-xl hover:border-customOrange transition-all">
+              <i class="fab fa-whatsapp text-2xl text-green-500"></i>
+              <div>
+                <p class="text-xs text-neutral-500 dark:text-neutral-400">WhatsApp</p>
+                <p class="text-sm font-bold">+234 915 564 3308</p>
+              </div>
+            </a>
+            <a href="mailto:whiteycreations@gmail.com" class="flex items-center space-x-4 p-4 glass-card rounded-xl hover:border-customOrange transition-all">
+              <i class="fas fa-envelope text-2xl text-customOrange"></i>
+              <div>
+                <p class="text-xs text-neutral-500 dark:text-neutral-400">Email</p>
+                <p class="text-sm font-bold">whiteycreations@gmail.com</p>
+              </div>
+            </a>
+            <a href="https://www.tiktok.com/@whiteycreations_" target="_blank" class="flex items-center space-x-4 p-4 glass-card rounded-xl hover:border-customOrange transition-all">
+              <i class="fab fa-tiktok text-2xl text-neutral-900 dark:text-white"></i>
+              <div>
+                <p class="text-xs text-neutral-500 dark:text-neutral-400">TikTok</p>
+                <p class="text-sm font-bold">@whiteycreations_</p>
+              </div>
+            </a>
+            <a href="https://linkedin.com/in/iyanuomobuse" target="_blank" class="flex items-center space-x-4 p-4 glass-card rounded-xl hover:border-customOrange transition-all">
+              <i class="fab fa-linkedin text-2xl text-blue-500"></i>
+              <div>
+                <p class="text-xs text-neutral-500 dark:text-neutral-400">LinkedIn</p>
+                <p class="text-sm font-bold">linkedin.com/in/iyanuomobuse</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- BOOKING FORM -->
+        <div class="glass-card p-8 rounded-2xl">
+          <h3 class="text-xl font-bold mb-6">Book A Shoot</h3>
+          <form onsubmit="handleBooking(event)" class="space-y-4">
+            <div>
+              <label class="block text-xs font-semibold uppercase text-neutral-500 dark:text-neutral-400 mb-1">Full Name</label>
+              <input type="text" id="b-name" required class="w-full px-4 py-3 bg-white/50 dark:bg-black/40 border border-neutral-300 dark:border-white/10 rounded-xl focus:border-customOrange outline-none text-sm transition-colors">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold uppercase text-neutral-500 dark:text-neutral-400 mb-1">Phone Number</label>
+              <input type="tel" id="b-phone" required class="w-full px-4 py-3 bg-white/50 dark:bg-black/40 border border-neutral-300 dark:border-white/10 rounded-xl focus:border-customOrange outline-none text-sm transition-colors">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold uppercase text-neutral-500 dark:text-neutral-400 mb-1">Event Type</label>
+              <select id="b-type" class="w-full px-4 py-3 bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-white/10 rounded-xl focus:border-customOrange outline-none text-sm transition-colors">
+                <option value="Wedding">Wedding Shoot</option>
+                <option value="Convocation">Convocation Shoot</option>
+                <option value="Dinner Night">Dinner Night</option>
+                <option value="Lifestyle">Lifestyle Video</option>
+                <option value="Music Video">Music Video</option>
+                <option value="Events">Event Coverage</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold uppercase text-neutral-500 dark:text-neutral-400 mb-1">Date</label>
+              <input type="date" id="b-date" required class="w-full px-4 py-3 bg-white/50 dark:bg-black/40 border border-neutral-300 dark:border-white/10 rounded-xl focus:border-customOrange outline-none text-sm transition-colors">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold uppercase text-neutral-500 dark:text-neutral-400 mb-1">Message / Details</label>
+              <textarea id="b-msg" rows="3" class="w-full px-4 py-3 bg-white/50 dark:bg-black/40 border border-neutral-300 dark:border-white/10 rounded-xl focus:border-customOrange outline-none text-sm transition-colors"></textarea>
+            </div>
+            <button type="submit" class="w-full py-4 bg-customOrange hover:bg-orange-600 text-white font-bold rounded-xl shadow-lg transition-all text-sm">
+              Book A Shoot
+            </button>
+          </form>
+        </div>
+      </div>
     </section>
   </main>
 
-  <a href="https://wa.me/2349155643308?text=Hello%20WhiteyCreations" target="_blank" class="fixed bottom-6 right-6 z-50 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center">
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a href="https://wa.me/2349155643308?text=Hello%20WhiteyCreations" target="_blank" class="fixed bottom-6 right-6 z-50 bg-green-600 text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center">
     <i class="fab fa-whatsapp text-3xl"></i>
   </a>
 
-  <div id="video-modal" class="fixed inset-0 z-50 hidden bg-black/90 flex items-center justify-center p-4">
-    <div class="relative w-full max-w-4xl aspect-video bg-black rounded-xl overflow-hidden shadow-2xl">
-      <button onclick="closeModal()" class="absolute top-4 right-4 z-50 text-white text-3xl hover:text-red-500 transition-colors">&times;</button>
-      <iframe id="modal-iframe" class="w-full h-full" src="" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+  <!-- BULLETPROOF VIDEO MODAL LIGHTBOX -->
+  <div id="video-modal" class="fixed inset-0 z-50 hidden bg-black/95 flex items-center justify-center p-4">
+    <div class="relative w-full max-w-4xl aspect-video bg-neutral-900 rounded-xl overflow-hidden shadow-2xl border border-white/10 flex flex-col items-center justify-center">
+      <button onclick="closeModal()" class="absolute top-4 right-4 z-50 text-white text-3xl hover:text-customOrange transition-colors">&times;</button>
+      <div id="modal-container" class="w-full h-full flex items-center justify-center">
+        <!-- Dynamic embed or fallback injected here -->
+      </div>
     </div>
   </div>
 
-  <footer class="py-8 border-t border-neutral-200 dark:border-neutral-800 text-center text-xs text-neutral-500">
+  <footer class="py-8 border-t border-neutral-200 dark:border-white/10 text-center text-xs text-neutral-500 transition-colors">
     <p>&copy; 2026 WhiteyCreations. All rights reserved.</p>
   </footer>
 
   <script>
+    // Theme Toggle Logic
     const themeToggleBtn = document.getElementById('theme-toggle');
     const darkIcon = document.getElementById('theme-toggle-dark-icon');
     const lightIcon = document.getElementById('theme-toggle-light-icon');
@@ -165,53 +356,83 @@
       }
     });
 
-    function getEmbedUrl(url) {
-      if (!url) return '';
+    let globalPortfolioItems = [];
+    let currentFilter = 'All';
+
+    // Bulletproof Video Parser & Fallback Generator
+    function getEmbedData(url) {
+      if (!url) return { type: 'direct', src: '' };
       let cleanUrl = url.trim();
-      
       if (!cleanUrl.startsWith('http://') && !cleanUrl.startsWith('https://')) {
         cleanUrl = 'https://' + cleanUrl;
       }
-
       try {
         const parsed = new URL(cleanUrl);
         
+        // TikTok Links
         if (parsed.hostname.includes('tiktok.com')) {
           const match = parsed.pathname.match(/\/video\/(\d+)/);
           if (match && match[1]) {
-            return `https://www.tiktok.com/embed/v2/${match[1]}`;
+            return { type: 'iframe', src: `https://www.tiktok.com/embed/v2/${match[1]}` };
           }
+          return { type: 'fallback', src: cleanUrl, label: 'Watch TikTok Video' };
         }
 
+        // Instagram Links
+        if (parsed.hostname.includes('instagram.com')) {
+          let igPath = parsed.pathname.replace(/\/$/, '');
+          return { type: 'iframe', src: `https://www.instagram.com${igPath}/embed/` };
+        }
+
+        // YouTube Short / Watch / Embed Links
         if (parsed.hostname.includes('youtu.be')) {
           const id = parsed.pathname.replace('/', '');
-          return `https://www.youtube.com/embed/${id}?autoplay=1`;
+          return { type: 'iframe', src: `https://www.youtube.com/embed/${id}?autoplay=1` };
         }
         if (parsed.hostname.includes('youtube.com')) {
-          if (parsed.pathname.includes('/embed/')) return cleanUrl;
+          if (parsed.pathname.includes('/embed/')) return { type: 'iframe', src: cleanUrl + '?autoplay=1' };
           if (parsed.pathname.includes('/shorts/')) {
             const id = parsed.pathname.split('/shorts/')[1];
-            return `https://www.youtube.com/embed/${id}?autoplay=1`;
+            return { type: 'iframe', src: `https://www.youtube.com/embed/${id}?autoplay=1` };
           }
           const id = parsed.searchParams.get('v');
-          if (id) return `https://www.youtube.com/embed/${id}?autoplay=1`;
+          if (id) return { type: 'iframe', src: `https://www.youtube.com/embed/${id}?autoplay=1` };
         }
 
-        if (parsed.hostname.includes('vimeo.com')) {
-          const id = parsed.pathname.split('/')[1];
-          return `https://player.vimeo.com/video/${id}?autoplay=1`;
+        // Direct MP4 or video file links
+        if (cleanUrl.match(/\.(mp4|webm|ogg)$/i)) {
+          return { type: 'video', src: cleanUrl };
         }
       } catch (e) {
-        console.error("Video parsing exception:", e);
+        console.error("Video parse error:", e);
       }
-      return cleanUrl;
+      return { type: 'fallback', src: cleanUrl, label: 'Open Video in New Tab' };
     }
 
-    function openModal(videoSrc) {
+    function openModal(videoUrl) {
       const modal = document.getElementById('video-modal');
-      const iframe = document.getElementById('modal-iframe');
-      if (modal && iframe) {
-        iframe.src = videoSrc;
+      const container = document.getElementById('modal-container');
+      if (modal && container) {
+        const embed = getEmbedData(videoUrl);
+        
+        if (embed.type === 'iframe') {
+          container.innerHTML = `<iframe class="w-full h-full" src="${embed.src}" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
+        } else if (embed.type === 'video') {
+          container.innerHTML = `<video class="w-full h-full object-contain" controls autoplay><source src="${embed.src}" type="video/mp4">Your browser does not support the video tag.</video>`;
+        } else {
+          // Fallback UI if platform blocks direct iframe embedding
+          container.innerHTML = `
+            <div class="text-center p-8 max-w-md">
+              <i class="fas fa-play-circle text-6xl text-customOrange mb-4"></i>
+              <h3 class="text-xl font-bold mb-2">Watch Project Video</h3>
+              <p class="text-sm text-neutral-400 mb-6">This platform requires opening in a secure window to play smoothly.</p>
+              <a href="${embed.src}" target="_blank" class="px-6 py-3 bg-customOrange text-white font-bold rounded-xl shadow-lg hover:bg-orange-600 transition-all inline-block">
+                ${embed.label} <i class="fas fa-external-link-alt ml-2"></i>
+              </a>
+            </div>
+          `;
+        }
+        
         modal.classList.remove('hidden');
         document.body.classList.add('modal-active');
       }
@@ -219,9 +440,9 @@
 
     function closeModal() {
       const modal = document.getElementById('video-modal');
-      const iframe = document.getElementById('modal-iframe');
-      if (modal && iframe) {
-        iframe.src = '';
+      const container = document.getElementById('modal-container');
+      if (modal && container) {
+        container.innerHTML = '';
         modal.classList.add('hidden');
         document.body.classList.remove('modal-active');
       }
@@ -231,37 +452,80 @@
       if (e.key === 'Escape') closeModal();
     });
 
+    // Render Grid
+    function renderGrid() {
+      const grid = document.getElementById('portfolio-grid');
+      if (!grid) return;
+
+      const filtered = currentFilter === 'All' 
+        ? globalPortfolioItems 
+        : globalPortfolioItems.filter(item => item.category && item.category.toLowerCase() === currentFilter.toLowerCase());
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `<div class="col-span-full text-center py-12 text-neutral-500">No projects found in this category yet. Add them via your Admin panel!</div>`;
+        return;
+      }
+
+      let html = '';
+      filtered.forEach(item => {
+        const rawUrl = item.videoUrl || item.video || '';
+
+        html += `
+          <div class="glass-card rounded-2xl overflow-hidden group cursor-pointer hover:border-customOrange transition-all shadow-sm" onclick="openModal('${rawUrl}')">
+            <div class="relative w-full h-56 overflow-hidden">
+              <img src="${item.thumbnail}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span class="px-4 py-2 bg-customOrange text-white font-bold text-xs rounded-full shadow-lg">Watch Project</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <span class="text-xs font-bold uppercase tracking-wider text-customOrange mb-1 block">${item.category}</span>
+              <h3 class="text-xl font-bold mb-2">${item.title}</h3>
+              <div class="flex items-center text-xs text-neutral-500 dark:text-neutral-400 font-semibold space-x-1">
+                <span>View Project</span>
+                <i class="fas fa-arrow-right"></i>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+      grid.innerHTML = html;
+    }
+
+    function filterPortfolio(category) {
+      currentFilter = category;
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        if (btn.textContent.trim().toLowerCase() === category.toLowerCase()) {
+          btn.className = "filter-btn px-5 py-2.5 rounded-full text-sm font-bold bg-customOrange text-white transition-all";
+        } else {
+          btn.className = "filter-btn px-5 py-2.5 rounded-full text-sm font-bold glass-card text-neutral-700 dark:text-neutral-300 hover:text-customOrange hover:border-customOrange transition-all";
+        }
+      });
+      renderGrid();
+    }
+
     async function fetchCMSPortfolio() {
       try {
         const response = await fetch('content/portfolio.json');
         if (!response.ok) return;
         const data = await response.json();
-        const items = data.items || [];
-        
-        const grid = document.getElementById('portfolio-grid');
-        if (!grid) return;
-
-        let cmsHTML = '';
-        items.forEach(item => {
-          const rawUrl = item.videoUrl || item.video || '';
-          const embedUrl = getEmbedUrl(rawUrl);
-
-          cmsHTML += `
-            <div class="portfolio-item p-4 bg-white dark:bg-neutral-800/80 border border-neutral-200 dark:border-neutral-800 rounded-xl shadow cursor-pointer transition-transform hover:-translate-y-1" onclick="openModal('${embedUrl}')">
-              <img src="${item.thumbnail}" alt="${item.title}" class="w-full h-48 object-cover rounded-lg mb-3">
-              <h3 class="text-xl font-bold text-neutral-900 dark:text-white">${item.title}</h3>
-              <p class="text-xs text-neutral-500 uppercase tracking-wider mb-2">${item.category}</p>
-              <button type="button" class="mt-2 px-4 py-2 bg-red-600 text-white rounded-lg text-sm font-semibold pointer-events-none">Watch Video</button>
-            </div>
-          `;
-        });
-
-        if (cmsHTML) {
-          grid.innerHTML = cmsHTML;
-        }
+        globalPortfolioItems = data.items || [];
+        renderGrid();
       } catch (err) {
-        console.error("Error fetching portfolio JSON:", err);
+        console.error("Error loading portfolio JSON:", err);
       }
+    }
+
+    function handleBooking(e) {
+      e.preventDefault();
+      const name = document.getElementById('b-name').value;
+      const phone = document.getElementById('b-phone').value;
+      const type = document.getElementById('b-type').value;
+      const date = document.getElementById('b-date').value;
+      const msg = document.getElementById('b-msg').value;
+
+      const text = `Hello WhiteyCreations,%0A%0A*New Booking Request*%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Event Type:* ${type}%0A*Date:* ${date}%0A*Message:* ${msg}`;
+      window.open(`https://wa.me/2349155643308?text=${text}`, '_blank');
     }
 
     document.addEventListener("DOMContentLoaded", fetchCMSPortfolio);
